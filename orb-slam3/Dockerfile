@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="obikata <https://github.com/obikata>"
 
-# nvidia-container-runtime
+# Configure nvidia-container-runtime
 ENV NVIDIA_VISIBLE_DEVICES ${NVIDIA_VISIBLE_DEVICES:-all}
 ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
-# install dependencies for orb-slam
+# Install dependencies for orb-slam
 RUN apt-get install -y \
         vim \
         zip unzip wget git \
@@ -22,13 +22,13 @@ RUN apt-get install -y \
         libgtk2.0-dev \
         libcanberra-gtk-module
 
-# install GLX-Gears
+# Install GLX-Gears
 RUN apt-get install -y --no-install-recommends mesa-utils x11-apps
 
-# install sudo
+# Install sudo
 RUN apt-get install -y sudo
 
-# add sudo user
+# Add sudo user
 RUN groupadd -g 1000 obikata && \
     useradd  -g      obikata -G sudo -m -s /bin/bash obikata && \
     echo 'obikata:nopasswd' | chpasswd
@@ -36,7 +36,7 @@ RUN groupadd -g 1000 obikata && \
 RUN echo 'Defaults visiblepw'             >> /etc/sudoers
 RUN echo 'obikata ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-# remove package list
+# Remove package list
 RUN rm -rf /var/lib/apt/lists/*
 
 # ARG CMAKE_INSTALL_PREFIX=/usr/local
