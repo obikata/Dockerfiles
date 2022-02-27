@@ -14,7 +14,7 @@ $ docker build -t orb-slam3 .
 
 ## Running Docker Container
 ```
-$ docker run --runtime=nvidia --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device /dev/video0:/dev/video0 --name orb-slam3 -d -it --mount type=bind,src=/home/obikata/Downloads,dst=/home/obikata/Downloads orb-slam3
+$ docker run --gpus all --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device /dev/video0:/dev/video0 --name orb-slam3 -d -it --mount type=bind,src=/home/obikata/Downloads,dst=/home/obikata/Downloads orb-slam3 
 ```
 
 ## OpenGL Test

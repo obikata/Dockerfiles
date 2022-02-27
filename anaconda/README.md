@@ -1,4 +1,4 @@
-Dockerfile for orb-slam3
+Dockerfile for anaconda
 ====
 
 ## Requirements
