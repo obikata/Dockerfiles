@@ -12,13 +12,42 @@ $ docker build -t xmrig .
 
 ## Running Docker Container
 ```
-$ docker run --gpus all --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name xmrig -d -it --mount type=bind,src=/home/obikata/Downloads,dst=/home/obikata/Downloads xmrig
+$ docker run --gpus all --name xmrig -d -it xmrig
+```
+
+## config.json
+
+```json
+{
+    "autosave": true,
+    "cpu": true,
+    "opencl": false,
+    "cuda": {
+        "enabled": true,
+        "loader": "../../xmrig-cuda/build/libxmrig-cuda.so",
+        "nvml": false,
+        "cn/0": false,
+        "cn-lite/0": false
+    },
+    "pools": [
+        {
+            "coin": null,
+            "algo": null,
+            "url": "rx-asia.unmineable.com:3333",
+            "user": "MATIC:ADDRESS.USERNAME",
+            "pass": "x",
+            "tls": false,
+            "keepalive": true,
+            "nicehash": true
+        }
+    ]
+}
 ```
 
 ## Run XMRig
 ```
 $ docker attach xmrig
-$ cd Downloads/xmrig/build/
+$ cd xmrig/build/
 $ ./xmrig -c config.json 
 ```
 
