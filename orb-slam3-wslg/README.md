@@ -1,8 +1,8 @@
-Dockerfile for orb-slam3
+Dockerfile for orb-slam3-wslg
 ====
 
 ## Requirements
-- Ububtu 20.04.2
+- Windows 11 + WSLg
 - Docker 20.10.8
 - [obikata/orb-slam3](https://github.com/obikata/orb-slam3)
 
