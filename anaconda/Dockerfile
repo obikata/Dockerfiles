@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 LABEL maintainer="obikata <https://github.com/obikata>"
 
 RUN apt-get update
@@ -8,6 +8,9 @@ RUN apt-get install -y \
         vim \
         wget \
         git
+
+# Install prerequisites for OpenCV
+RUN apt-get install -y libgl1 libgtk2.0-dev
 
 # Install sudo
 RUN apt-get install -y sudo
@@ -29,9 +32,9 @@ USER obikata
 # Install anaconda
 WORKDIR /home/obikata/tmp
 RUN set -x && \ 
-    wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh && \
-    bash Anaconda3-2021.05-Linux-x86_64.sh -b && \
-    rm Anaconda3-2021.05-Linux-x86_64.sh
+    wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh && \
+    bash Anaconda3-2023.09-0-Linux-x86_64.sh -b && \
+    rm Anaconda3-2023.09-0-Linux-x86_64.sh
 
 # Reset workdir
 WORKDIR /home/obikata
