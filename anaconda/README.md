@@ -2,8 +2,8 @@ Dockerfile for anaconda
 ====
 
 ## Requirements
-- Ububtu 20.04.2 / Windows 10
-- Docker 20.10.8
+- Ububtu 22.04.3 / Windows 11
+- Docker 24.0.7
 
 ## Building Docker Image
 ```
